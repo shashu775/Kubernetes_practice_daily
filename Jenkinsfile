@@ -3,22 +3,15 @@ pipeline {
 
     stages {
 
-        stage('Checkout Code from GitHub') {
+        stage('Create Nginx Pod') {
             steps {
-                git branch: 'main',
-                    url: 'https://github.com/shashu775/Kubernetes_practice_daily.git'
-            }
-        }
-
-        stage('Apply Kubernetes Pod') {
-            steps {
-                sh 'kubectl apply -f k8s/nginx-pod.yaml'
+                bat 'kubectl apply -f k8s\\nginx-pod.yaml'
             }
         }
 
         stage('Show Pod Status') {
             steps {
-                sh 'kubectl get pods'
+                bat 'kubectl get pods'
             }
         }
     }
