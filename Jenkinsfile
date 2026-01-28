@@ -3,13 +3,13 @@ pipeline {
 
     stages {
 
-        stage('Create Nginx Pod') {
+        stage('Create Pod from Repo YAML') {
             steps {
-                bat 'kubectl apply -f day1_pod\\podbasic.yaml'
+                bat 'kubectl apply -f day1_pod\\podbasic.yaml --validate=false'
             }
         }
 
-        stage('Show Pod Status') {
+        stage('Verify Pod') {
             steps {
                 bat 'kubectl get pods'
             }
