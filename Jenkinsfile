@@ -5,7 +5,7 @@ pipeline {
 
         stage('Create Nginx Pod') {
             steps {
-                bat 'kubectl apply -f k8s\\nginx-pod.yaml'
+                bat 'kubectl apply -f day1_pod\\podbasic.yaml'
             }
         }
 
